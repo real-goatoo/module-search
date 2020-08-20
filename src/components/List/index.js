@@ -66,7 +66,7 @@ export default class List extends Component {
         const { modules, nextPageLink } = this.state;
         const itemsPerRow = modules.length >= 3 ? 3 : modules.length;
         return (
-            <Container fluid className="List" style={{ padding: 40 }}>
+            <Container inverted fluid className="List" style={{ padding: 40 }}>
                 <Grid divided="vertically">
                     <Grid.Row>
                         <Grid.Column>
@@ -78,8 +78,8 @@ export default class List extends Component {
                         {modules.map((module, index) => <Grid.Column><Module {...module} /></Grid.Column>)}
                         {/*</Card.Group>*/}
                     </Grid.Row>
-                    <Grid.Row>
-                        {nextPageLink !== null ? <Button onClick={() => {this.getModules(nextPageLink)}}>Page suivante</Button> : null}
+                    <Grid.Row textAlign={"center"}>
+                        {nextPageLink !== null ? <a className="ui header" href="#" onClick={() => {this.getModules(nextPageLink)}}>See more</a> : null}
                     </Grid.Row>
                 </Grid>
             </Container>

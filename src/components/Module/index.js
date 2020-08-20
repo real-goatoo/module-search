@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import classNames from 'classnames'
 import './Module.scss'
 import axios from 'axios';
 import semver from 'semver';
-import {Button, Card, Container, Grid, Icon, Message, Segment} from "semantic-ui-react";
+import {Button, Card, Container, Grid, Icon, Message, Popup, Segment} from "semantic-ui-react";
 
 export default class Module extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            init: false,
             lastVersion: null
         }
     }
@@ -24,6 +24,7 @@ export default class Module extends Component {
                     .sort(semver.rcompare)[0];
                 this.setState(
                     {
+                        init:true,
                         lastVersion: packageVersions[lastVersionNumber]
                     }
                 );
@@ -35,8 +36,14 @@ export default class Module extends Component {
     }
 
     render() {
+        // this.getAdditionalData();
         const { lastVersion } = this.state;
         const approvedVendors = ['cqfdev'];
+        let composerRequireCommand = "composer require "+this.props.name;
+        if (lastVersion) {
+            composerRequireCommand = composerRequireCommand+" ~"+lastVersion.version;
+        }
+
         let vendor = "";
         if (this.props.vendor === "thelia") {
             vendor = 'official';
@@ -55,21 +62,27 @@ export default class Module extends Component {
                         {this.props.description}
                         <Grid>
                             <Grid.Column floated='left' width={14}>
-                                <Message size='small'>composer require {this.props.name} {lastVersion ? "~"+lastVersion.version: null}</Message>
+                                <Message size='small'>{composerRequireCommand}</Message>
                             </Grid.Column>
                                 <Grid.Column floated='right' width={2}>
-                                    <Button circular icon='clipboard' />
+                                    <Popup
+                                        position='top center'
+                                        inverted
+                                        trigger={<Button circular icon='clipboard' onClick={() => navigator.clipboard.writeText(composerRequireCommand)} />}
+                                        content={'Command copied!'}
+                                        on='click'
+                                        mouseLeaveDelay={500}
+                                    />
                                 </Grid.Column>
                         </Grid>
-
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
                     <div className='ui two buttons'>
-                        <a className="fluid ui button" href={this.props.repository}>
+                        <a className="fluid ui button" href={this.props.repository} target="_blank">
                             <Icon name='github'/> Github
                         </a>
-                        <a className="fluid ui button" href={this.props.url}>
+                        <a className="fluid ui button" href={this.props.url} target="_blank">
                             <Icon name='cube'/> Packagist
                         </a>
                     </div>
