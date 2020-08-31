@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import './List.scss';
 import SearchInput from "../SearchInput";
-import {Button, Card, Container, Grid} from "semantic-ui-react";
+import {Button, Form, Container, Grid} from "semantic-ui-react";
 
 
 export default class List extends Component {
@@ -19,10 +19,6 @@ export default class List extends Component {
 
     getModules = (nextPageLink = null, reset = false) => {
         const url = nextPageLink !== null ? nextPageLink : "https://packagist.org/search.json?per_page=15&type=thelia-module&q="+this.state.search;
-
-        // for (let i = 0; i <= 50; i++ ) {
-        //     axios.get('https://www.coinks.fr/');
-        // }
 
         axios.get(url, {
 
@@ -64,25 +60,25 @@ export default class List extends Component {
 
     render() {
         const { modules, nextPageLink } = this.state;
-        const itemsPerRow = modules.length >= 3 ? 3 : modules.length;
+
         return (
-            <Container inverted fluid className="List" style={{ padding: 40 }}>
-                <Grid divided="vertically">
-                    <Grid.Row>
-                        <Grid.Column>
-                            <SearchInput doSearch={this.doSearch}/>
-                        </Grid.Column>
-                    </Grid.Row>
-                    <Grid.Row columns={3}>
-                        {/*<Card.Group centered itemsPerRow={itemsPerRow} className="List-module">*/}
-                        {modules.map((module, index) => <Grid.Column><Module {...module} /></Grid.Column>)}
-                        {/*</Card.Group>*/}
-                    </Grid.Row>
-                    <Grid.Row textAlign={"center"}>
-                        {nextPageLink !== null ? <a className="ui header" href="#" onClick={() => {this.getModules(nextPageLink)}}>See more</a> : null}
-                    </Grid.Row>
-                </Grid>
-            </Container>
+            <div>
+                    <Container>
+                        <Form>
+                            <SearchInput doSearch={this.doSearch} textAlign='center'/>
+                        </Form>
+                    </Container>
+                    <Container inverted fluid className="List" style={{ padding: 40 }}>
+                        <Grid divided="vertically">
+                            <Grid.Row columns={3}>
+                                {modules.map((module, index) => <Grid.Column><Module {...module} /></Grid.Column>)}
+                            </Grid.Row>
+                        </Grid>
+                    </Container>
+                    <Container textAlign='center' style={{marginBottom:"1em"}}>
+                        {nextPageLink !== null ? <Button content="See more" onClick={() => {this.getModules(nextPageLink)}}/> : null}
+                    </Container>
+            </div>
         )
     }
 }
