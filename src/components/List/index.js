@@ -13,7 +13,8 @@ export default class List extends Component {
 
         this.state = {
             modules: [],
-            search: ""
+            search: "",
+            galleryStyle: true
         }
     }
 
@@ -54,24 +55,33 @@ export default class List extends Component {
         })
     }
 
+    switchListStyle = () => {
+        this.setState((prevState, props) => {
+            return {galleryStyle: !prevState.galleryStyle};
+        });
+    }
+
     componentDidMount() {
         this.getModules();
     }
 
     render() {
-        const { modules, nextPageLink } = this.state;
+        const { modules, nextPageLink, galleryStyle } = this.state;
+        const columnButtonIcon = galleryStyle ? 'th large' : 'th large list';
+        const numberOfColumns = galleryStyle ? 3 : 1;
 
         return (
             <div>
                     <Container>
                         <Form>
                             <SearchInput doSearch={this.doSearch} textAlign='center'/>
+                            <Button onClick={() => {this.switchListStyle()}} icon={columnButtonIcon} />
                         </Form>
                     </Container>
-                    <Container inverted fluid className="List" style={{ padding: 40 }}>
+                    <Container fluid={galleryStyle} className="List" style={{ padding: 40 }}>
                         <Grid divided="vertically">
-                            <Grid.Row columns={3}>
-                                {modules.map((module, index) => <Grid.Column><Module {...module} /></Grid.Column>)}
+                            <Grid.Row columns={numberOfColumns} >
+                                {modules.map((module, index) => <Grid.Column style={{ marginBottom: 40 }} key={module.package}><Module {...module} /></Grid.Column>)}
                             </Grid.Row>
                         </Grid>
                     </Container>

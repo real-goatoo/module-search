@@ -35,6 +35,8 @@ export default class Module extends Component {
         this.getAdditionalData();
     }
 
+
+
     render() {
         // this.getAdditionalData();
         const { lastVersion } = this.state;
