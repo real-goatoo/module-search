@@ -56,7 +56,7 @@ export default class Module extends Component {
         }
 
         return (
-            <Card fluid className="Module" color={"yellow"}>
+            <Card fluid className="Module" color={"pink"}>
                 <Card.Content>
                     <Card.Header ><h2>{this.props.package}</h2></Card.Header>
                     <Card.Meta>By {this.props.vendor}</Card.Meta>
@@ -89,12 +89,6 @@ export default class Module extends Component {
                         </a>
                     </div>
                 </Card.Content>
-                {/*<p>by {this.props.vendor}</p>*/}
-                {/*<p className={classNames('Module-vendor', 'Module-'+vendor)}>{vendor}</p>*/}
-                {/*<p className="Module-description">{this.props.description}</p>*/}
-                {/*<p className="Module-composer">composer require {this.props.name} {lastVersion ? "~"+lastVersion.version: null}</p>*/}
-                {/*<p className="Module-stats">{this.props.favers} stars - {this.props.downloads} download</p>*/}
-                {/*<p className="Module-packagist"><a href={this.props.url}>View it on packagist</a></p>*/}
             </Card>
         )
     }

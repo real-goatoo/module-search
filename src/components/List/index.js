@@ -67,27 +67,29 @@ export default class List extends Component {
 
     render() {
         const { modules, nextPageLink, galleryStyle } = this.state;
-        const columnButtonIcon = galleryStyle ? 'th large' : 'th large list';
+        const columnButtonIcon = galleryStyle ? 'th list' : 'th';
         const numberOfColumns = galleryStyle ? 3 : 1;
 
         return (
             <div>
-                    <Container>
-                        <Form>
+                <Container>
+                    <Form>
+                        <Form.Group widths='equal'>
                             <SearchInput doSearch={this.doSearch} textAlign='center'/>
-                            <Button onClick={() => {this.switchListStyle()}} icon={columnButtonIcon} />
-                        </Form>
-                    </Container>
-                    <Container fluid={galleryStyle} className="List" style={{ padding: 40 }}>
-                        <Grid divided="vertically">
-                            <Grid.Row columns={numberOfColumns} >
-                                {modules.map((module, index) => <Grid.Column style={{ marginBottom: 40 }} key={module.package}><Module {...module} /></Grid.Column>)}
-                            </Grid.Row>
-                        </Grid>
-                    </Container>
-                    <Container textAlign='center' style={{marginBottom:"1em"}}>
-                        {nextPageLink !== null ? <Button content="See more" onClick={() => {this.getModules(nextPageLink)}}/> : null}
-                    </Container>
+                            <Button onClick={() => {this.switchListStyle()}} icon={columnButtonIcon}  className={"large"}/>
+                        </Form.Group>
+                    </Form>
+                </Container>
+                <Container fluid={galleryStyle} className="List" style={{ padding: 40 }}>
+                    <Grid divided="vertically">
+                        <Grid.Row columns={numberOfColumns} >
+                            {modules.map((module, index) => <Grid.Column style={{ marginBottom: 40 }} key={module.package}><Module {...module} /></Grid.Column>)}
+                        </Grid.Row>
+                    </Grid>
+                </Container>
+                <Container textAlign='center' style={{marginBottom:"1em"}}>
+                    {nextPageLink !== null ? <Button content="See more" onClick={() => {this.getModules(nextPageLink)}}/> : null}
+                </Container>
             </div>
         )
     }
