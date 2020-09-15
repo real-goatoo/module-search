@@ -1,3 +1,9 @@
 /*******************************
     User Variable Overrides
 *******************************/
+
+@font-path: '../assets/fonts';
+@font-face  {
+    font-family: 'Hosobiki';
+    src:url('@{font-path}/Hosobiki.ttf');
+}

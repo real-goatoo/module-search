@@ -4,3 +4,4 @@
 @labelColor: blue;
 @inputFocusColor: @primaryColor;
 @inputColor: @primaryColor;
+@inputFocusBorderColor: @primaryColor;

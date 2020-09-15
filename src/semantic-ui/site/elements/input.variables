@@ -3,3 +3,4 @@
 *******************************/
 
 @borderColor: @primaryColor;
+@focusBorderColor: @primaryColor;

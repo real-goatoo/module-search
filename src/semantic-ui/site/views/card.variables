@@ -5,3 +5,4 @@
 @background: #44475a;
 @metaColor: @white;
 @headerColor: @primaryColor;
+@descriptionColor: @white;

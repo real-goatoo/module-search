@@ -61,7 +61,7 @@ export default class Module extends Component {
                     <Card.Header ><h2>{this.props.package}</h2></Card.Header>
                     <Card.Meta>By {this.props.vendor}</Card.Meta>
                     <Card.Description>
-                        {this.props.description}
+                        <p>{this.props.description}</p>
                         <Grid>
                             <Grid.Column floated='left' width={14}>
                                 <Message size='small'>{composerRequireCommand}</Message>
@@ -69,7 +69,6 @@ export default class Module extends Component {
                                 <Grid.Column floated='right' width={2}>
                                     <Popup
                                         position='top center'
-                                        inverted
                                         trigger={<Button className={"secondary"} circular icon='clipboard' onClick={() => navigator.clipboard.writeText(composerRequireCommand)} />}
                                         content={'Command copied!'}
                                         on='click'
