@@ -1,0 +1,16 @@
+/*******************************
+     User Global Variables
+*******************************/
+
+@black: #282a36;
+@grey: #a9a9a9;
+@primaryColor:    #ff79c6;
+@secondaryColor      : #50fa7b;
+@blue           : #6272a4;
+@purple           : #bd93f9;
+
+@textColor: @white;
+@focusedFormBorderColor: @white;
+@pageBackground: #282a36;
+@inputBackground: #44475a;
+@solidBorderColor: #44475a;

@@ -1,7 +1,7 @@
 import React from 'react';
 import List from './components/List';
 import './App.css';
-import 'semantic-ui-css/semantic.min.css'
+// import 'semantic-ui-css/semantic.min.css'
 import {
     Header,
 } from 'semantic-ui-react'

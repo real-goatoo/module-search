@@ -70,7 +70,7 @@ export default class Module extends Component {
                                     <Popup
                                         position='top center'
                                         inverted
-                                        trigger={<Button circular icon='clipboard' onClick={() => navigator.clipboard.writeText(composerRequireCommand)} />}
+                                        trigger={<Button className={"secondary"} circular icon='clipboard' onClick={() => navigator.clipboard.writeText(composerRequireCommand)} />}
                                         content={'Command copied!'}
                                         on='click'
                                         mouseLeaveDelay={500}
@@ -81,10 +81,10 @@ export default class Module extends Component {
                 </Card.Content>
                 <Card.Content extra>
                     <div className='ui two buttons'>
-                        <a className="fluid ui button" href={this.props.repository} target="_blank">
+                        <a className="fluid ui button " href={this.props.repository} target="_blank">
                             <Icon name='github'/> Github
                         </a>
-                        <a className="fluid ui button" href={this.props.url} target="_blank">
+                        <a className="fluid ui button " href={this.props.url} target="_blank">
                             <Icon name='cube'/> Packagist
                         </a>
                     </div>

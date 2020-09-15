@@ -76,7 +76,7 @@ export default class List extends Component {
                     <Form>
                         <Form.Group widths='equal'>
                             <SearchInput doSearch={this.doSearch} textAlign='center'/>
-                            <Button onClick={() => {this.switchListStyle()}} icon={columnButtonIcon}  className={"large"}/>
+                            <Button onClick={() => {this.switchListStyle()}} icon={columnButtonIcon}  className={"large secondary"}/>
                         </Form.Group>
                     </Form>
                 </Container>
@@ -88,7 +88,7 @@ export default class List extends Component {
                     </Grid>
                 </Container>
                 <Container textAlign='center' style={{marginBottom:"1em"}}>
-                    {nextPageLink !== null ? <Button content="See more" onClick={() => {this.getModules(nextPageLink)}}/> : null}
+                    {nextPageLink !== null ? <Button className={"secondary"}  content="See more" onClick={() => {this.getModules(nextPageLink)}}/> : null}
                 </Container>
             </div>
         )

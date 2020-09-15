@@ -1,0 +1,6 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+@labelColor: blue;
+@inputFocusColor: @primaryColor;
+@inputColor: @primaryColor;
