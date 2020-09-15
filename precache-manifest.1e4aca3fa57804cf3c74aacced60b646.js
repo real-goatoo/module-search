@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4d4d0394c6ed766e732d58f18014b85b",
+    "revision": "0c4d7ab86519c5407134247f03cb1e24",
     "url": "/module-search/index.html"
   },
   {
-    "revision": "a5d7762174434af205be",
-    "url": "/module-search/static/css/2.65585a68.chunk.css"
+    "revision": "8b2b9396a1062fa08eba",
+    "url": "/module-search/static/css/2.62d25147.chunk.css"
   },
   {
-    "revision": "2bef965d9eddbb3d7a5b",
-    "url": "/module-search/static/css/main.2a0ffd3f.chunk.css"
+    "revision": "b31f97a5de9ed47f339f",
+    "url": "/module-search/static/css/main.4457f0e8.chunk.css"
   },
   {
-    "revision": "a5d7762174434af205be",
+    "revision": "8b2b9396a1062fa08eba",
     "url": "/module-search/static/js/2.bae6a87b.chunk.js"
   },
   {
@@ -20,12 +20,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/module-search/static/js/2.bae6a87b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2bef965d9eddbb3d7a5b",
-    "url": "/module-search/static/js/main.d519656e.chunk.js"
+    "revision": "b31f97a5de9ed47f339f",
+    "url": "/module-search/static/js/main.66139ba1.chunk.js"
   },
   {
     "revision": "de731e424bbaeb3d6cbb",
     "url": "/module-search/static/js/runtime-main.50dbf45d.js"
+  },
+  {
+    "revision": "457d465e0b5f7a26311804066fc0e29d",
+    "url": "/module-search/static/media/Hosobiki.457d465e.ttf"
   },
   {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
