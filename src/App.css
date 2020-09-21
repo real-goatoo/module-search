@@ -5,3 +5,31 @@ body {
     color: white !important;
     background-color: #ff79c6 !important;
 }
+
+h1 {
+    animation: neon 10s ease-in-out infinite;
+}
+
+@keyframes neon {
+    0% {
+        text-shadow: 0 0 10px #ff79c6, 0 0 20px #ff79c6, 0 0 30px #ff79c6, 0 0 40px #ff79c6, 0 0 70px #ff79c6;
+    }
+    30% {
+        text-shadow: none;
+    }
+    31% {
+        text-shadow: 0 0 10px #ff79c6, 0 0 20px #ff79c6, 0 0 30px #ff79c6, 0 0 40px #ff79c6, 0 0 70px #ff79c6;
+    }
+    32% {
+        text-shadow: none;
+    }
+    33% {
+        text-shadow: 0 0 10px #ff79c6, 0 0 20px #ff79c6, 0 0 30px #ff79c6, 0 0 40px #ff79c6, 0 0 70px #ff79c6;
+    }
+    45% {
+        text-shadow: none;
+    }
+    100% {
+        text-shadow: 0 0 5px #ff79c6, 0 0 10px #ff79c6, 0 0 15px #ff79c6, 0 0 20px #ff79c6, 0 0 35px #ff79c6, 0 0 40px #ff79c6, 0 0 50px #ff79c6, 0 0 75px #ff79c6;
+    }
+}

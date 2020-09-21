@@ -6,6 +6,6 @@ h1 {
     font-family: "Hosobiki" !important;
     font-weight: 100 !important;
     font-size: 4rem !important;
-    color: #ffaadb !important;
+    color: #eac6db !important;
     text-shadow: #ff79c6 0px 0px 13px;
 }
