@@ -48,13 +48,17 @@ export default class List extends Component {
     }
 
     doSearch = (search) => {
-        window.history.pushState('Search', 'Search Thelia modules ' + search, '?q='+search);
+        if (null !== search) {
+            window.history.pushState('Search', 'Search Thelia modules ' + search, '?q='+search);
 
-        this.setState({
-            search: search
-        }, () => {
-            this.getModules(null, true);
-        })
+            this.setState({
+                search: search
+            }, () => {
+                this.getModules(null, true);
+            })
+        } else {
+            this.getModules();
+        }
     }
 
     switchListStyle = () => {
@@ -65,7 +69,7 @@ export default class List extends Component {
 
     componentDidMount() {
         const urlParams = new URLSearchParams(window.location.search);
-        const search = urlParams.get('q');
+        let search = urlParams.get('q') != null ? urlParams.get('q') : null;
 
         this.doSearch(search);
     }

@@ -35,8 +35,6 @@ export default class Module extends Component {
         this.getAdditionalData();
     }
 
-
-
     render() {
         const { lastVersion } = this.state;
         let composerRequireCommand = "composer require "+this.props.name;
