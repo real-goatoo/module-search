@@ -48,6 +48,8 @@ export default class List extends Component {
     }
 
     doSearch = (search) => {
+        window.history.pushState('Search', 'Search Thelia modules ' + search, '?q='+search);
+
         this.setState({
             search: search
         }, () => {
@@ -62,8 +64,12 @@ export default class List extends Component {
     }
 
     componentDidMount() {
-        this.getModules();
+        const urlParams = new URLSearchParams(window.location.search);
+        const search = urlParams.get('q');
+
+        this.doSearch(search);
     }
+
 
     render() {
         const { modules, nextPageLink, galleryStyle } = this.state;
@@ -75,7 +81,7 @@ export default class List extends Component {
                 <Container>
                     <Form>
                         <Form.Group widths='equal'>
-                            <SearchInput doSearch={this.doSearch} textAlign='center'/>
+                            <SearchInput doSearch={this.doSearch} textAlign='center' defaulValue={this.state.search}/>
                             <Button onClick={() => {this.switchListStyle()}} icon={columnButtonIcon}  className={"large secondary"}/>
                         </Form.Group>
                     </Form>
