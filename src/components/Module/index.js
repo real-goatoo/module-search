@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './Module.scss'
 import axios from 'axios';
 import semver from 'semver';
-import {Button, Card, Container, Grid, Icon, Message, Popup, Segment} from "semantic-ui-react";
+import {Button, Card, Grid, Icon, Message, Popup} from "semantic-ui-react";
 
 export default class Module extends Component {
     constructor(props) {
@@ -38,21 +38,10 @@ export default class Module extends Component {
 
 
     render() {
-        // this.getAdditionalData();
         const { lastVersion } = this.state;
-        const approvedVendors = ['cqfdev'];
         let composerRequireCommand = "composer require "+this.props.name;
         if (lastVersion) {
             composerRequireCommand = composerRequireCommand+" ~"+lastVersion.version;
-        }
-
-        let vendor = "";
-        if (this.props.vendor === "thelia") {
-            vendor = 'official';
-        }
-
-        if (approvedVendors.indexOf(this.props.vendor) !== -1) {
-            vendor = "approved";
         }
 
         return (
