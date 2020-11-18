@@ -1,0 +1,14 @@
+.Abandoned {
+  text-align: center;
+  padding: 15px;
+  font-size: 16px;
+  i {
+    &.large.icon {
+      vertical-align: sub;
+    }
+    color: #ff79c6;
+  }
+  a {
+    color: #ff79c6;
+  }
+}

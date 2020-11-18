@@ -3,6 +3,7 @@ import './Module.scss'
 import axios from 'axios';
 import semver from 'semver';
 import {Button, Card, Grid, Icon, Message, Popup} from "semantic-ui-react";
+import Abandoned from "../Abandoned";
 
 export default class Module extends Component {
     constructor(props) {
@@ -49,6 +50,7 @@ export default class Module extends Component {
                     <Card.Meta>By {this.props.vendor}</Card.Meta>
                     <Card.Description>
                         <p>{this.props.description}</p>
+                        {this.props.hasOwnProperty("abandoned") ? <Abandoned package={this.props.abandoned} /> : null}
                         <Grid>
                             <Grid.Column floated='left' width={14}>
                                 <Message size='small'>{composerRequireCommand}</Message>
